@@ -1,13 +1,13 @@
 !!!
 -# Strict
-%html{html_attrs}
+%html{ html_attrs }
   %head
     %title Cameron Walters
     
-    %meta{ :"http-equiv" => "content-type", :content => "text/html; charset=utf-8" }
+    %meta{ "http-equiv" => "content-type", :content => "text/html; charset=utf-8" }
     
+    %script{ :src => ExternalApis.google_ajax_url, :type => "text/javascript" }
     = javascript_include_tag :all, :cache => true
-    = javascript_include_tag ExternalApis.google_ajax_url
     = stylesheet_link_tag "compiled/screen", :cache => true
   
     = yield :head

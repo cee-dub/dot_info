@@ -1,0 +1,12 @@
+%h2.twitter-title
+  = link_to image_tag("twitter.jpg"), "http://twitter.com/"
+  = link_to "I&rsquo;d twit that", "http://twitter.com/ceedub"
+%ul#twitter_update_list
+  %li= image_tag "wait_er.gif"
+
+
+- content_for :end_of_body do
+  =# js_include_tag "http://twitter.com/javascripts/blogger.js"
+  =# js_include_tag "http://twitter.com/statuses/user_timeline/ceedub.json?callback=twitterCallback2&amp;count=7"
+  :javascript
+    $(function() { google.setOnLoadCallback(init_twit); });

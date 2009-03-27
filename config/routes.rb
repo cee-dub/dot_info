@@ -31,6 +31,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   map.root :controller => "information"
+  map.last_fm '/last_fm', :controller => "information", :action => "last_fm"
 
   # See how all your routes lay out with "rake routes"
 

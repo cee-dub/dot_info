@@ -1,0 +1,10 @@
+%h2.last-fm-title
+  = link_to image_tag("last.fm.gif"), "http://last.fm/"
+  = link_to "I heard that", "http://last.fm/oinkachoink"
+
+%ul.charts
+  %li= image_tag "wait_fm.gif"
+
+- content_for :end_of_body do
+  :javascript
+    $(function() { $.get("#{last_fm_path}", {}, show_recent_tracks); });
