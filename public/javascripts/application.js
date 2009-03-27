@@ -1,5 +1,26 @@
 // This file is automatically included by javascript_include_tag :defaults
 
+// Delicious
+function make_tasty(bookmarks) {
+  // insert bookmarks
+  $.each(bookmarks, function() {
+    $('.delicious .bookmarks').tplAppend(this, function() {
+      return ['li', {}, [
+        'a', {'href': this.u}, this.d,
+        'span', {'class': 'description'}, this.n,
+        'ul', {'class': 'tags'}, []
+      ]];
+    });
+  });
+  // add tag lists
+  $('.delicious .bookmarks li .tags').each(function(i) {
+    $(this).tplAppend(bookmarks[i].t, function() {
+      return ['li', {}, ['a', {'href': "http://delicious.com/oinkachoink/" + this.toString()}, this.toString()]];
+    });
+  });
+}
+
+
 // Last FM
 function extract_track_data(track) {
   return {
@@ -28,20 +49,20 @@ function show_recent_tracks(xml) {
 // Twitter
 google.load("feeds", "1");
 function init_twit() {
-    var twitter_feed = new google.feeds.Feed("http://search.twitter.com/search.atom?q=from%3Aceedub");
-    twitter_feed.load(function(result) {
-      if (!result.error) {
-        $('#twitter_update_list').empty().tplAppend(result.feed.entries, function() {
-          return ['li', {}, [
-            'span', {}, this.content,
-            'a', {
-              "href": this.link, 
-              "class": 'timestamp', 
-              "title": new Date(this.publishedDate).toISOString()
-            }, this.publishedDate
-          ]];
-        });
-        $('#twitter_update_list a[class*=timestamp]').timeago();
-      }
-    });
+  var twitter_feed = new google.feeds.Feed("http://search.twitter.com/search.atom?q=from%3Aceedub");
+  twitter_feed.load(function(result) {
+    if (!result.error) {
+      $('#twitter_update_list').empty().tplAppend(result.feed.entries, function() {
+        return ['li', {}, [
+          'span', {}, this.content,
+          'a', {
+            "href": this.link, 
+            "class": 'timestamp', 
+            "title": new Date(this.publishedDate).toISOString()
+          }, this.publishedDate
+        ]];
+      });
+      $('#twitter_update_list a[class*=timestamp]').timeago();
+    }
+  });
 }

@@ -1,0 +1,9 @@
+%h2
+  = link_to image_tag("http://l.yimg.com/hr/10334/img/delicious.small.gif"), "http://delicious.com/"
+  = link_to "I tagged that", "http://delicious.com/oinkachoink"
+
+%ul.bookmarks
+
+
+- content_for :end_of_body do
+  %script{:src => "http://feeds.delicious.com/v2/json/oinkachoink?callback=make_tasty&count=4", :type => 'text/javascript'}
