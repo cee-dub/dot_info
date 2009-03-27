@@ -1,0 +1,10 @@
+tmp/**/*
+*.cache
+*.log
+*.pid
+*.sqlite3
+doc/app
+doc/api
+doc/plugins
+*.tmproj
+public/stylesheets/compiled/*.css
