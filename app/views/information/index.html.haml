@@ -1,0 +1,100 @@
+- content_for :head do
+  %meta{ExternalApis.google_webmaster_tools_meta}
+
+#header-container
+  %h1.caps
+    = surround "cee-dub.info(", ")" do
+      %span.symbol :public
+      
+  %hr
+
+#main-container
+  %p
+    Hi, I’m 
+    %span.caps Cameron Walters
+
+  %p.top
+    I’ve been hacking and coding things for most of my life. Right now, 
+    I’m into coding websites. I generally use #{link_to "Ruby", "http://www.ruby-lang.org/en/"},
+    but I’m also dabbling in #{link_to "Django", "http://www.djangoproject.com/"}
+    and #{link_to "iPhone", "http://developer.apple.com/iphone/"} development.
+
+  .highlight
+    = link_to('Domainr', "http://domai.nr"), ", the fast domain search engine, has launched!"
+
+  %p.bottom Quick hits:
+  %ul
+    %li
+      I recently co-founded #{link_to "nb.io", "http://nb.io/"}
+      with #{link_to "Eric Case", "http://vedana.net/"}
+      and #{link_to "Randy Reddig", "http://shaderlab.com/"}
+    %li
+      I’m a Bay Area native currently living in San Francisco. 
+    %li
+      When I’m not in front of a computer you can probably find me
+      climbing or snowboarding, depending on the weather.
+    %li
+      You can reach me at #{link_to "ping@cee-dub.info", "mailto:ping@cee-dub.info?subject=Hello"}
+    
+
+  %p
+    I’ve needed a site to collect my various Internet tentacles for a while now.
+    I’m just getting started.
+
+#secondary-container
+  %p
+    What, no mug shot? I’d rather show you what I’ve done and what I’m into:
+    
+  %h3 I Made This
+  %ul.plain
+    %li
+      %strong &#187;
+      = link_to 'Domainr', "http://domai.nr"
+    %li
+      %strong &#187;
+      = link_to "Google is your new mom", "http://googleisyournewmom.com/"
+    %li
+      %strong &#187;
+      = link_to "chuddup.com", "http://chuddup.com/"
+    %li
+      %strong &#187;
+      = link_to "Yahoo BBAuth Rails plugin", "http://chuddup.com/blog/archive/27/drop-in-yahoo-browser-based-authentication-for-rails/"
+    %li
+      %strong &#187;
+      = link_to "Rails form builder plugin", "http://github.com/cee-dub/labeled_form_with_errors/tree/master#readme"
+
+  %h3 I’m in the Tubes
+  %ul.plain
+    %li
+      %strong »
+      = link_to "Flickr", "http://www.flickr.com/photos/ymbiont/"
+    %li
+      %strong »
+      = link_to "SonicLiving", "http://sonicliving.com/user/892"
+    %li
+      %strong »
+      = link_to "Github", "http://github.com/cee-dub"
+    %li
+      %strong »
+      = link_to "LinkedIn", "http://www.linkedin.com/in/ceedub"
+    %li.last
+      %strong »
+      = link_to "Tumblr", "http://tumblr.cee-dub.info/"
+      
+  %h3 Previous Companies
+  %ul.plain
+    %li
+      %strong »
+      = link_to "Get Satisfaction", "http://getsatisfaction.com/"
+    %li
+      %strong »
+      = link_to "Rubyred Labs", "http://rubyredlabs.com/"
+
+#lower-container
+  #twitter_div.twitter
+    = render :partial => "twitter"
+  .last-fm
+    = render :partial => "last_fm"
+  .delicious
+    = render :partial => "delicious"
+
