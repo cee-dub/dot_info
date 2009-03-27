@@ -1,4 +1,5 @@
 tmp/**/*
+*.tmproj
 *.cache
 *.log
 *.pid
@@ -6,5 +7,5 @@ tmp/**/*
 doc/app
 doc/api
 doc/plugins
-*.tmproj
 public/stylesheets/compiled/*.css
+config/external_apis.yml
