@@ -6,6 +6,9 @@
 # and recreated between test runs.  Don't rely on the data there!
 config.cache_classes = true
 
+config.gem "rspec", :lib => false, :version => ">= 1.2.0"
+config.gem "rspec-rails", :lib => false, :version => ">= 1.2.0"
+
 # Log error messages when you accidentally call methods on nil.
 config.whiny_nils = true
 
@@ -26,3 +29,4 @@ config.action_mailer.delivery_method = :test
 # This is necessary if your schema can't be completely dumped by the schema dumper,
 # like if you have constraints or database-specific column types
 # config.active_record.schema_format = :sql
+
