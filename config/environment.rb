@@ -16,6 +16,8 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem "taf2-curb", :lib => "curb", :source => 'http://gems.github.com', :version => ">=0.2.8.0"
+  config.gem "chriseppstein-compass", :lib => "compass", :source => 'http://gems.github.com', :version => ">=0.5.4"
+  config.gem "haml", :version => ">=2.1.0"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
