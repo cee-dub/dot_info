@@ -60,8 +60,4 @@ namespace(:deploy) do
   task :stop, :roles => :app do
     # nothing
   end
-  
-  # task :after_symlink, :roles => :app do
-  #   # nothing
-  # end
 end
