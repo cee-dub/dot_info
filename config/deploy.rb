@@ -26,28 +26,15 @@ ssh_options[:port] = 20020
 set :scm, :git
 
 ## Deploy using local copy
-set :deploy_via, :copy
-set :repository,  "/Users/cameron/clients/cee-dub/dotinfo"
+# set :copy_exclude,  %w(.git) 
+# set :deploy_via,    :copy
+# set :repository,    "/Users/cameron/clients/cee-dub/dotinfo"
 
 ## Deploy using Github
-# set :github_user, "cee-dub"
-# set :repository,  "git@github.com:#{github_user}/#{application}.git"
+set :github_user, "cee-dub"
+set :repository,  "git@github.com:#{github_user}/#{application}.git"
 
-namespace(:deploy) do  
-  desc "Long deploy will throw up the maintenance.html page and run migrations 
-        then it restarts and enables the site again."
-  task :long do
-    transaction do
-      update_code
-      web.disable
-      symlink
-      migrate
-    end
-  
-    restart
-    web.enable
-  end
-
+namespace(:deploy) do
   desc "Restart the application by notifying Passenger that the code has changed."
   task :restart, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
@@ -59,5 +46,9 @@ namespace(:deploy) do
 
   task :stop, :roles => :app do
     # nothing
+  end
+  
+  task :after_update_code, :roles => :app do
+    top.upload "config/external_apis.yml", "#{release_path}/config/external_apis.yml"
   end
 end
