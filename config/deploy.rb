@@ -1,7 +1,7 @@
 # Basic config options
 set :application, "dot_info"
 set :deploy_to,   "/home/cameron/public_html/#{application}"
-set :domain,      "number1" # definded in /etc/hosts on local machine
+set :domain,      "cee-dub.info"
 set :use_sudo,    false
 
 role :app, domain
@@ -35,7 +35,6 @@ set :github_user, "cee-dub"
 set :repository,  "git@github.com:#{github_user}/#{application}.git"
 
 namespace(:deploy) do
-  desc "Restart the application by notifying Passenger that the code has changed."
   task :restart, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
   end
